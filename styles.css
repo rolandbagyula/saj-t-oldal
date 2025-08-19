@@ -6,6 +6,13 @@
     box-sizing: border-box;
 }
 
+/* Fluid media defaults for responsive images/videos/SVGs */
+img, picture, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 :root {
     /* Colors */
     --primary-bg: #1a1a1a;
@@ -139,7 +146,7 @@ body {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 4rem;
     align-items: center;
 }
@@ -164,7 +171,7 @@ body {
 .view-all-btn { background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); padding: 0.8rem 1.5rem; font-family: var(--font-primary); font-weight: var(--font-weight-medium); font-size: 0.8rem; cursor: pointer; transition: var(--transition); text-transform: uppercase; }
 .view-all-btn:hover { background: var(--accent-color); color: var(--primary-bg); }
 
-.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
 .service-card { background: var(--primary-bg); padding: 2.5rem; border-radius: var(--border-radius); transition: var(--transition); border: 1px solid rgba(0, 212, 170, 0.1); }
 .service-card:hover { transform: translateY(-10px); box-shadow: var(--box-shadow); border-color: var(--accent-color); }
 .service-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-color), var(--accent-hover)); border-radius: var(--border-radius); display:flex; justify-content:center; align-items:center; font-size:1.5rem; color: var(--primary-bg); margin-bottom: 1.5rem; }
@@ -173,7 +180,7 @@ body {
 
 /* About Section */
 .about { padding: var(--section-padding); }
-.about-content { display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-content { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 4rem; align-items: center; }
 .about-image .image-placeholder { width: 400px; height: 500px; background: var(--secondary-bg); border-radius: var(--border-radius); display:flex; justify-content:center; align-items:center; font-size: 5rem; color: var(--accent-color); }
 .about-description { color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 2.5rem; }
 .skills { display:flex; flex-direction: column; gap: 1.5rem; }
@@ -306,7 +313,7 @@ html { scroll-behavior: smooth; }
 
 /* Projects section */
 .projects { padding: 5rem 0; background: #0a0a0a; }
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
 .projects .post-card { background:#1a1a1a; border-radius:15px; overflow:hidden; transition: all 0.3s ease; border:1px solid rgba(255,255,255,0.1); height:auto; max-width:100%; }
 .projects .post-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,212,170,0.1); }
 .projects .post-image { height:180px; position:relative; overflow:hidden; }
@@ -366,7 +373,7 @@ html { scroll-behavior: smooth; }
 /* Contact section and form */
 .contact { padding: 6rem 0; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); position:relative; }
 .contact::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background: radial-gradient(circle at 20% 80%, rgba(0,212,170,0.1) 0%, transparent 50%); pointer-events:none; }
-.contact-content { display:grid; grid-template-columns: 1fr 1fr; gap:4rem; align-items:start; }
+.contact-content { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:4rem; align-items:start; }
 .contact-info .section-label { color:#00d4aa; font-size:0.9rem; font-weight:600; letter-spacing:2px; margin-bottom:1rem; }
 .contact-info .section-title { font-size:2.5rem; font-weight:700; margin-bottom:1.5rem; color:#ffffff; }
 .contact-info .highlight { color:#00d4aa; }
@@ -407,3 +414,9 @@ html { scroll-behavior: smooth; }
 .about-image-centered { display:flex; justify-content:center; align-items:center; width:100%; }
 .about-photo-center { margin: 0 auto; display:block; }
 .nav-link.legal { text-decoration: underline; }
+
+/* Large screen refinements (layout-only) */
+@media (min-width: 1440px) {
+  .container { padding: 0 2.5rem; }
+  .projects-grid, .contact-content { gap: 2.5rem; }
+}
