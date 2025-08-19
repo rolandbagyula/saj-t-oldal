@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Az oldal nem található</title>
+  <link rel="canonical" href="https://rolandbagyula.github.io/rolandportfolio/404.html">
+  <link rel="stylesheet" href="styles.css?v=20250819">
+  <link rel="stylesheet" href="cookie.css?v=20250819">
+  <style>
+    .not-found { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .not-found .box { background: var(--secondary-bg); padding: 3rem; border-radius: 12px; box-shadow: var(--box-shadow); }
+    .not-found h1 { font-size: 4rem; margin-bottom: 0.5rem; }
+    .not-found p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+    .home-link { display: inline-block; background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); padding: 0.8rem 1.4rem; border-radius: 8px; text-decoration: none; transition: var(--transition); }
+    .home-link:hover { background: var(--accent-color); color: var(--primary-bg); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo"><h2>Roland</h2><span>Webfejlesztő</span></div>
+      <nav class="nav">
+        <a href="/rolandportfolio/" class="nav-link">HOME</a>
+        <a href="/rolandportfolio/blog.html" class="nav-link">BLOG</a>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="Menü"><span class="fi fi-rr-menu-burger"></span></button>
+    </div>
+  </header>
+
+  <main class="not-found container" id="main">
+    <div class="box">
+      <h1>404</h1>
+      <p>Úgy tűnik, ez az oldal nem létezik vagy áthelyezésre került.</p>
+      <a class="home-link" href="/rolandportfolio/">Vissza a kezdőlapra</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Roland. Minden jog fenntartva. · <a href="/rolandportfolio/aszf.html" class="nav-link legal">ÁSZF</a> · <a href="/rolandportfolio/adatvedelem.html" class="nav-link legal">Adatvédelem</a></p>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" title="Vissza az oldal tetejére">
+    <i class="fi fi-rr-angle-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

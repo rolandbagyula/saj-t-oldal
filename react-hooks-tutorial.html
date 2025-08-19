@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Hooks Tutorial - Roland Portfolio</title>
+    <meta name="description" content="Részletes React Hooks tutorial Roland webfejlesztőtől. Gyakorlati példák és tippek a modern React fejlesztéshez.">
+    <link rel="stylesheet" href="styles.css?v=20250819">
+    <link rel="stylesheet" href="cookie.css?v=20250819">
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link rel="canonical" href="https://rolandbagyula.github.io/rolandportfolio/react-hooks-tutorial.html">
+    <style>
+        /* Global font family - Inter for minimal design */
+        * {
+            font-family: 'Inter', sans-serif !important;
+        }
+        
+        /* Logo styling for tutorial */
+        .logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.8rem !important;
+        }
+        
+        .header-image {
+            width: 28px !important;
+            height: 28px !important;
+            border-radius: 50% !important;
+            transition: all 0.3s ease !important;
+            object-fit: cover !important;
+        }
+        
+        .header-image:hover {
+            transform: scale(1.05) !important;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4) !important;
+        }
+        
+        .logo-text h2 {
+            margin: 0 !important;
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+            color: #ffffff !important;
+        }
+        
+        .logo-text span {
+            font-size: 0.8rem !important;
+            color: #00d4aa !important;
+            font-weight: 400 !important;
+        }
+        
+        .logo-white, .logo-cyan {
+            font-size: inherit !important;
+            font-weight: inherit !important;
+            font-family: inherit !important;
+        }
+        
+        .logo-white {
+            color: #ffffff !important;
+        }
+        
+        .logo-cyan {
+            color: #00d4aa !important;
+        }
+        
+        @media (max-width: 768px) {
+            .logo-text h2 {
+                font-size: 1.3rem !important;
+            }
+            
+            .logo-text span {
+                font-size: 0.7rem !important;
+            }
+        }
+        
+        /* Article specific styles */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .article-tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .article-content h2 {
+            color: var(--accent-color);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+        }
+        
+        .article-content h3 {
+            color: var(--text-primary);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.3rem;
+        }
+        
+        .article-content code {
+            background: var(--secondary-bg);
+            padding: 15px;
+            display: block;
+            border-radius: 8px;
+            color: var(--accent-color);
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .article-content ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .article-content li {
+            margin: 0.5rem 0;
+            color: var(--text-secondary);
+        }
+        
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-blog:hover {
+            gap: 1rem;
+        }
+        
+        .highlight-box {
+            background: rgba(0, 212, 170, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none !important;
+            color: #ffffff !important;
+            font-size: 1.5rem !important;
+            cursor: pointer !important;
+            transition: color 0.3s ease !important;
+        }
+        
+        .mobile-menu-btn:hover {
+            color: #00bfa5 !important;
+        }
+        
+        /* Mobile Navigation */
+        @media screen and (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block !important;
+            }
+            
+            .nav {
+                position: fixed !important;
+                top: 70px !important;
+                left: -100% !important;
+                width: 100% !important;
+                height: calc(100vh - 70px) !important;
+                background: rgba(26, 26, 26, 0.98) !important;
+                backdrop-filter: blur(10px) !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                padding-top: 3rem !important;
+                gap: 2rem !important;
+                transition: left 0.3s ease !important;
+                z-index: 999 !important;
+                overflow-y: auto !important;
+            }
+            
+            .nav.active {
+                left: 0 !important;
+                transform: translateX(0) !important;
+            }
+            
+            .nav-link {
+                font-size: 1.2rem !important;
+                padding: 1rem 0 !important;
+                width: 100% !important;
+                text-align: center !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            }
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            width: 55px !important;
+            height: 55px !important;
+            background: #00d4aa !important;
+            color: #0a0a0a !important;
+            border: none !important;
+            border-radius: 50% !important;
+            font-size: 1.4rem !important;
+            cursor: pointer !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(30px) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4) !important;
+            border: 2px solid rgba(0, 212, 170, 0.3) !important;
+            z-index: 1000 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        .back-to-top i {
+            font-size: 1.4rem !important;
+            color: #0a0a0a !important;
+            line-height: 1 !important;
+            display: block !important;
+        }
+        
+        .back-to-top.show {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            animation: backToTopPulse 0.6s ease-out !important;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-8px) scale(1.1) !important;
+            box-shadow: 0 15px 35px rgba(0, 212, 170, 0.6) !important;
+            background: #00bfa5 !important;
+            border-color: rgba(0, 212, 170, 0.6) !important;
+        }
+        
+        .back-to-top:active {
+            transform: translateY(-4px) scale(1.1) !important;
+            box-shadow: 0 10px 25px rgba(0, 212, 170, 0.5) !important;
+        }
+        
+        @keyframes backToTopPulse {
+            0% {
+                transform: translateY(30px) scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-5px) scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 25px !important;
+                right: 25px !important;
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 1.1rem !important;
+            }
+        }
+        
+        /* Flaticon visibility fix */
+        .mobile-menu-btn i {
+            font-size: 1.5rem !important;
+            color: #00d4aa !important;
+            display: block !important;
+            line-height: 1 !important;
+        }
+        
+        .back-to-top i {
+            font-size: 1.4rem !important;
+            color: #0a0a0a !important;
+            display: block !important;
+            line-height: 1 !important;
+        }
+        
+        .back-to-blog i {
+            font-size: 1.2rem !important;
+            color: #ffffff !important;
+            display: inline-block !important;
+            margin-right: 0.5rem !important;
+        }
+        
+        /* Enhanced CTA Button Styles */
+        .cta-button {
+            display: inline-block !important;
+            padding: 20px 40px !important;
+            background: linear-gradient(135deg, #00d4aa, #00b894) !important;
+            color: white !important;
+            text-decoration: none !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            letter-spacing: 1.2px !important;
+            text-transform: uppercase !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            border: 2px solid transparent !important;
+            position: relative !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3) !important;
+            transform: translateY(0) !important;
+        }
+        
+        .cta-primary {
+            font-size: 1.2rem !important;
+            padding: 22px 45px !important;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4) !important;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.5) !important;
+            background: linear-gradient(135deg, #00b894, #00a085) !important;
+        }
+        
+        .cta-primary:hover {
+            transform: translateY(-5px) scale(1.03) !important;
+            box-shadow: 0 25px 50px rgba(0, 212, 170, 0.6) !important;
+        }
+        
+        /* Enhanced Section Titles */
+        .section-title-enhanced {
+            font-size: 2.8rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 2rem !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        /* Enhanced button interactions */
+        .cta-button::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+            transition: left 0.6s ease !important;
+        }
+        
+        .cta-button:hover::before {
+            left: 100% !important;
+        }
+        
+        /* Accessibility - Focus states */
+        .cta-button:focus, .nav-link:focus, input:focus, textarea:focus, button:focus {
+            outline: 3px solid #00d4aa !important;
+            outline-offset: 2px !important;
+            box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.3) !important;
+        }
+        
+        .mobile-menu-btn:focus {
+            outline: 2px solid #00d4aa !important;
+            outline-offset: 2px !important;
+        }
+        
+        /* Skip to content link */
+        .skip-link {
+            position: absolute !important;
+            top: -40px !important;
+            left: 6px !important;
+            background: #00d4aa !important;
+            color: white !important;
+            padding: 8px !important;
+            text-decoration: none !important;
+            border-radius: 4px !important;
+            z-index: 1000 !important;
+            transition: top 0.3s !important;
+        }
+        
+        .skip-link:focus {
+            top: 6px !important;
+        }
+        
+        /* Mobile UX Optimizations */
+        @media (max-width: 768px) {
+            .section-title-enhanced {
+                font-size: 2.2rem !important;
+            }
+            
+            /* Touch targets minimum 44px */
+            .cta-button, .nav-link, .mobile-menu-btn, .back-to-top {
+                min-height: 44px !important;
+                min-width: 44px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            
+            .mobile-menu-btn {
+                padding: 12px !important;
+                font-size: 1.5rem !important;
+            }
+            
+            /* Mobile menu animation enhancement */
+            .nav.active {
+                animation: slideDown 0.3s ease-out !important;
+            }
+            
+            .container {
+                padding: 0 1rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title-enhanced {
+                font-size: 1.8rem !important;
+            }
+            
+            .article-content {
+                padding: 1rem !important;
+            }
+            
+            .article-content h3 {
+                font-size: 1.2rem !important;
+            }
+            
+            .article-content p {
+                font-size: 0.9rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            .article-content pre {
+                font-size: 0.8rem !important;
+                padding: 1rem !important;
+                overflow-x: auto !important;
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Ugrás a tartalomhoz</a>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="főkép.jpg" alt="Főkép" class="header-image" onclick="scrollToTop()" style="cursor: pointer;">
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="index.html#about" class="nav-link">RÓLAM</a>
+                <a href="index.html#services" class="nav-link">SZOLGÁLTATÁSOK</a>
+                <a href="index.html#projects" class="nav-link">PROJEKTEK</a>
+                <a href="blog.html" class="nav-link">BLOG</a>
+                <a href="index.html#contact" class="nav-link">KAPCSOLAT</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fi fi-rr-menu-burger"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main id="main" class="article-container" style="margin-top: 120px;">
+        <a href="blog.html" class="back-to-blog">
+            <i class="fi fi-rr-angle-left"></i>
+            Vissza a bloghoz
+        </a>
+        
+        <article>
+            <header class="article-header">
+                <h1 class="article-title">React Hooks: A Modern Fejlesztés Alapjai</h1>
+                <div class="image-placeholder" role="img" aria-label="Cikk képe">
+                    📝
+                </div>
+                <div class="article-meta">
+                    <span>
+                        📅
+                        2025. Jan 12.
+                    </span>
+                    <span>
+                        ⏰
+                        8 perc olvasás
+                    </span>
+                    <span>
+                        👤
+                        Roland
+                    </span>
+                </div>
+                <div class="article-tags">
+                    <span class="tag">React</span>
+                    <span class="tag">Hooks</span>
+                    <span class="tag">useState</span>
+                    <span class="tag">useEffect</span>
+                    <span class="tag">Custom Hooks</span>
+                </div>
+            </header>
+            
+            <div class="article-content">
+                <h2>🚀 Bevezetés a React Hooks világába</h2>
+                
+                <p>A React Hooks forradalmasították a modern React fejlesztést. A React 16.8 verziójában bevezetett Hooks lehetővé teszik, hogy funkcionális komponensekben is használhassuk a state-et és más React funkciókat, anélkül hogy class komponenseket kellene írnunk.</p>
+                
+                <div class="highlight-box">
+                    <strong>🎯 Mit fogsz megtanulni ebben a cikkben:</strong>
+                    <ul>
+                        <li>useState és useEffect Hook-ok alapjai</li>
+                        <li>Custom Hook-ok készítése</li>
+                        <li>Performance optimalizálási technikák</li>
+                        <li>Gyakori hibák elkerülése</li>
+                        <li>Best practice-ek és pro tippek</li>
+                    </ul>
+                </div>
+
+                <h2>1. useState Hook - State Kezelés Funkcionális Komponensekben</h2>
+                
+                <p>A <code>useState</code> a leggyakrabban használt Hook, amely lehetővé teszi a state kezelését funkcionális komponensekben. Egyszerű és intuitív használata miatt ideális kezdőknek és haladóknak egyaránt.</p>
+                
+                <h3>Alapvető használat:</h3>
+                <code>import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Számláló: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        Növelés
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code>
+
+                <h2>2. useEffect Hook - Side Effect-ek Kezelése</h2>
+                
+                <p>Az <code>useEffect</code> Hook segítségével side effect-eket kezelhetünk, mint például API hívások, DOM manipuláció, vagy feliratkozások. Ez helyettesíti a class komponensek <code>componentDidMount</code>, <code>componentDidUpdate</code> és <code>componentWillUnmount</code> lifecycle metódusait.</p>
+
+                <h3>Példa API hívásra:</h3>
+                <code>import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() =&gt; {
+    const fetchUser = async () =&gt; {
+      setLoading(true);
+      try {
+        const response = await fetch(`/api/users/${userId}`);
+        const userData = await response.json();
+        setUser(userData);
+      } catch (error) {
+        console.error('Hiba a felhasználó betöltésekor:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [userId]); // Dependency array - csak userId változásakor fut újra
+
+  if (loading) return &lt;div&gt;Betöltés...&lt;/div&gt;;
+  if (!user) return &lt;div&gt;Felhasználó nem található&lt;/div&gt;;
+
+  return &lt;div&gt;Üdv, {user.name}!&lt;/div&gt;;
+}</code>
+
+                <h2>3. Custom Hook-ok - Logika Újrafelhasználása</h2>
+                
+                <p>A Custom Hook-ok lehetővé teszik, hogy a komponensek közötti logikát újrafelhasználható módon szervezzük ki. Egy custom hook egyszerűen egy JavaScript függvény, amely más Hook-okat használ.</p>
+
+                <h3>useApi Custom Hook példa:</h3>
+                <code>import { useState, useEffect } from 'react';
+
+function useApi(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() =&gt; {
+    const fetchData = async () =&gt; {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+}
+
+// Használat:
+function ProductList() {
+  const { data: products, loading, error } = useApi('/api/products');
+
+  if (loading) return &lt;div&gt;Betöltés...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Hiba: {error}&lt;/div&gt;;
+
+  return (
+    &lt;ul&gt;
+      {products.map(product =&gt; (
+        &lt;li key={product.id}&gt;{product.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}</code>
+
+                <h2>4. Performance Optimalizálás</h2>
+                
+                <p>A React Hook-ok használatakor fontos figyelni a performance-ra. Itt néhány hasznos technika:</p>
+
+                <h3>useMemo és useCallback:</h3>
+                <code>import React, { useMemo, useCallback } from 'react';
+
+function ExpensiveComponent({ items, onItemClick }) {
+  // Költséges számítás memoizálása
+  const expensiveValue = useMemo(() =&gt; {
+    return items.reduce((sum, item) =&gt; sum + item.value, 0);
+  }, [items]);
+
+  // Callback függvény memoizálása
+  const handleClick = useCallback((id) =&gt; {
+    onItemClick(id);
+  }, [onItemClick]);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Összeg: {expensiveValue}&lt;/p&gt;
+      {items.map(item =&gt; (
+        &lt;button key={item.id} onClick={() =&gt; handleClick(item.id)}&gt;
+          {item.name}
+        &lt;/button&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}</code>
+
+                <div class="highlight-box">
+                    <h3>💡 Pro Tippek és Best Practice-ek:</h3>
+                    <ul>
+                        <li><strong>Dependency Array:</strong> Mindig használj dependency array-t useEffect-nél, hogy elkerüld a végtelen loop-okat</li>
+                        <li><strong>State Struktura:</strong> Kerüld a túl sok useState használatát - használj useReducer-t komplex state-nél</li>
+                        <li><strong>Custom Hook-ok:</strong> Szervezd ki az újrafelhasználható logikát custom hook-okba</li>
+                        <li><strong>Cleanup:</strong> Ne felejtsd el a cleanup függvényeket useEffect-ben (pl. event listener-ek eltávolítása)</li>
+                        <li><strong>React DevTools:</strong> Használd a React DevTools-t a Hook-ok debug-olásához</li>
+                        <li><strong>ESLint Plugin:</strong> Telepítsd az eslint-plugin-react-hooks-ot a Hook szabályok betartásához</li>
+                    </ul>
+                </div>
+
+                <h2>5. Gyakori Hibák és Megoldásaik</h2>
+
+                <h3>❌ Helytelen dependency array:</h3>
+                <code>// Rossz - végtelen loop
+useEffect(() =&gt; {
+  setCount(count + 1);
+}, [count]);
+
+// Jó - functional update használata
+useEffect(() =&gt; {
+  setCount(prevCount =&gt; prevCount + 1);
+}, []);</code>
+
+                <h3>❌ Missing cleanup:</h3>
+                <code>// Rossz - memory leak
+useEffect(() =&gt; {
+  const interval = setInterval(() =&gt; {
+    console.log('Timer tick');
+  }, 1000);
+}, []);
+
+// Jó - cleanup függvénnyel
+useEffect(() =&gt; {
+  const interval = setInterval(() =&gt; {
+    console.log('Timer tick');
+  }, 1000);
+
+  return () =&gt; clearInterval(interval);
+}, []);</code>
+
+                <h2>🎯 Következtetés</h2>
+                
+                <p>A React Hooks modern, tiszta és hatékony kódot tesznek lehetővé. Ezekkel az alapokkal már készíthetsz professzionális React alkalmazásokat, amelyek könnyen karbantarthatók és skálázhatók.</p>
+                
+                <p>A Hook-ok használata eleinte kihívást jelenthet, de a gyakorlással természetessé válik. Kezdj egyszerű példákkal, és fokozatosan haladj a komplexebb use case-ek felé.</p>
+
+                <div class="highlight-box">
+                    <p><strong>További tanuláshoz ajánlott források:</strong></p>
+                    <ul>
+                        <li>React hivatalos dokumentáció</li>
+                        <li>React DevTools böngésző kiegészítő</li>
+                        <li>ESLint plugin a Hook szabályok betartásához</li>
+                        <li>Online gyakorló projektek és kód példák</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Roland. Minden jog fenntartva.</p>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Vissza az oldal tetejére">
+        <i class="fi fi-rr-angle-up"></i>
+    </button>
+    
+    <!-- GDPR Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Süti hozzájárulás">
+        <div class="cookie-content">
+            <p>Ez a weboldal sütiket használ a felhasználói élmény javítására. A részleteket az <a href="adatvedelem.html">Adatvédelmi tájékoztatóban</a> találod.</p>
+            <div class="cookie-actions">
+                <button id="cookieDeny" class="cookie-btn secondary" type="button">Elutasítom</button>
+                <button id="cookieAccept" class="cookie-btn" type="button">Elfogadom</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Mobile Menu and Back to Top functionality for tutorial page
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopBtn = document.getElementById('backToTop');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('.nav');
+            
+            // Mobile menu toggle
+            if (mobileMenuBtn && nav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    
+                });
+                
+                // Close mobile menu when clicking on a link
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        nav.classList.remove('active');
+                    });
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                        nav.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Back to Top Button functionality
+            if (backToTopBtn) {
+                // Show/hide button based on scroll position
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopBtn.classList.add('show');
+                    } else {
+                        backToTopBtn.classList.remove('show');
+                    }
+                });
+                
+                // Smooth scroll to top when clicked
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

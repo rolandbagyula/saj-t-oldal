@@ -1,0 +1,5 @@
+# robots.txt for GitHub Pages site
+User-agent: *
+Allow: /
+
+Sitemap: https://rolandbagyula.github.io/rolandportfolio/sitemap.xml
