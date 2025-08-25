@@ -4,7 +4,7 @@ Modern, responsive portfolio website for a Frontend Developer with dark theme an
 
 ## 🚀 Live Demo
 
-🔗 **[View Live Website](https://your-username.github.io/roland-portfolio)**
+🔗 **[View Live Website](https://rolandbagyula.github.io/rolandportfolio/)**
 
 ## ✨ Features
 
@@ -24,22 +24,25 @@ Modern, responsive portfolio website for a Frontend Developer with dark theme an
 - **HTML5** - Semantic markup
 - **CSS3** - Modern styling with Flexbox/Grid
 - **JavaScript** - Vanilla JS for interactions
-- **Font Awesome** - Icons
+- **Flaticon UIcons + inline SVG** - Icons
 - **Google Fonts** - Poppins typography
 
 ## 📁 Project Structure
 
 ```
-roland-portfolio/
-├── index.html              # Main homepage with optimized UI/UX
-├── blog.html               # Blog section with unified card design
-├── react-hooks-tutorial.html # Sample blog post with enhanced accessibility
-├── styles.css              # Main stylesheet with responsive design
-├── script.js               # JavaScript functionality (optimized)
-├── build.js                # Build script for optimization
-├── flask_server.py         # Python backend server
-├── főkép.jpg               # Logo image
-└── README.md               # Project documentation
+rolandportfolio/
+├── index.html               # Homepage
+├── blog.html                # Blog index
+├── react-hooks-tutorial.html# Sample blog post
+├── styles.css               # Main styles
+├── cookie.css               # Cookie banner styles
+├── script.js                # Site JS (menu, scroll, contact form, etc.)
+├── blog.js                  # Blog page JS
+├── sitemap.xml              # Sitemap
+├── robots.txt               # Robots
+├── 404.html                 # Not found page
+├── főkép.jpg                # Profile image
+└── README.md                # Documentation
 ```
 
 ## 🎯 Sections
@@ -93,12 +96,6 @@ roland-portfolio/
    # Visit http://localhost:8000
    ```
 
-4. **Build optimized version**
-   ```bash
-   node build.js
-   # Creates optimized files in dist/ folder
-   ```
-
 ## 🎯 UI/UX Optimizations
 
 ### ✨ Recent Enhancements
@@ -108,6 +105,10 @@ roland-portfolio/
 - **Mobile UX**: 44px minimum touch targets, enhanced mobile animations
 - **Card Consistency**: Unified design between blog and project cards
 - **Responsive Grid**: 3-column layout on desktop, 2-column on tablet, 1-column on mobile
+- **Contact Form**: Real Formspree integration with AJAX and inline success/error states
+- **Layout Spacing**: Reduced gap between Hero and About for tighter fold
+- **Project Icons**: Replaced emoji placeholders with inline SVG icons
+- **Legal Pages**: Removed ÁSZF and Adatvédelem pages and all references
 
 ### 🎨 Design System
 - **Primary Color**: #00d4aa (Cyan)
@@ -122,14 +123,12 @@ This website is deployed using **GitHub Pages**:
 
 1. Push code to main branch
 2. Enable GitHub Pages in repository settings
-3. Website automatically available at: `https://username.github.io/roland-portfolio`
+3. Website automatically available at: `https://rolandbagyula.github.io/rolandportfolio/`
 
 ## 📧 Contact
 
 **Roland** - Frontend Developer
-- 📧 Email: roland@example.com
-- 💼 LinkedIn: [Your LinkedIn Profile]
-- 🐙 GitHub: [Your GitHub Profile]
+- 📧 Email: rolandbdesign@gmail.com
 
 ## 📄 License
 

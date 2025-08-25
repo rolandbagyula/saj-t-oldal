@@ -201,13 +201,52 @@ document.addEventListener('DOMContentLoaded', () => {
         headerImg.addEventListener('click', scrollToTop);
     }
 
-    // Contact form demo submit
+    // Contact form: AJAX submit to Formspree with status message
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Űrlap elküldve! (Demo verzió)');
-        });
+        const action = contactForm.getAttribute('action') || '';
+        // Demo handler only for old placeholder endpoint
+        if (action === '/api/contact') {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Űrlap elküldve! (Demo verzió)');
+            });
+        }
+        // Formspree AJAX handling
+        if (action.includes('formspree.io')) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const statusEl = document.getElementById('formStatus');
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                statusEl.textContent = 'Küldés folyamatban…';
+                statusEl.className = 'form-status';
+                submitBtn.disabled = true;
+
+                try {
+                    const formData = new FormData(contactForm);
+                    const res = await fetch(action, {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: formData
+                    });
+                    if (res.ok) {
+                        statusEl.textContent = 'Köszönöm! Az üzenetedet sikeresen elküldtük.';
+                        statusEl.classList.add('success');
+                        contactForm.reset();
+                    } else {
+                        const data = await res.json().catch(() => ({}));
+                        const msg = data?.errors?.map(e => e.message).join(', ') || 'Váratlan hiba történt. Próbáld újra később.';
+                        statusEl.textContent = `Hiba: ${msg}`;
+                        statusEl.classList.add('error');
+                    }
+                } catch (err) {
+                    statusEl.textContent = 'Hálózati hiba. Ellenőrizd az internetkapcsolatot és próbáld újra.';
+                    statusEl.classList.add('error');
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            });
+        }
     }
 });
 
