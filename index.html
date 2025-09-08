@@ -18,6 +18,9 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="főkép.jpg">
     <meta property="og:locale" content="hu_HU">
+    <!-- Flaticon UIcons -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
     <meta name="twitter:card" content="summary_large_image">
     <!-- TODO: Állítsd be a kanonikus URL-t az éles domainre -->
     <link rel="canonical" href="https://rolandbagyula.github.io/rolandportfolio/">
@@ -42,9 +45,13 @@
                 <a href="#projects" class="nav-link">PROJEKTEK</a>
                 <a href="#contact" class="nav-link">KAPCSOLAT</a>
             </nav>
-            <div class="mobile-menu-btn">
-                <i class="fi fi-rr-menu-burger"></i>
-            </div>
+            <button class="mobile-menu-btn" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="main-nav">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
     </header>
 
@@ -352,7 +359,7 @@
         <button class="lightbox-nav lightbox-next" aria-label="Következő kép">❯</button>
     </div>
     
-    <script src="script.js?v=20240908"></script>
     <script src="lightbox.js"></script>
+    <script src="mobile-menu.js"></script>
 </body>
 </html>

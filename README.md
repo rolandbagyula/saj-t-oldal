@@ -1,6 +1,6 @@
 # 🌟 Roland Portfolio Website
 
-Modern, responsive portfolio website for a Frontend Developer with dark theme and cyan accents. Features an interactive project showcase with image carousels and lightbox functionality.
+Modern, responsive portfolio website for a Frontend Developer with dark theme and cyan accents. Features an interactive project showcase with image carousels, lightbox functionality, and an accessible mobile menu.
 
 ## 🚀 Live Demo
 
@@ -16,6 +16,7 @@ Modern, responsive portfolio website for a Frontend Developer with dark theme an
 - 🎯 **SEO & Accessibility Optimized** - ARIA labels, semantic HTML
 - 📱 **Mobile-Friendly** - touch controls and responsive layouts
 - ✨ **UI/UX Focused** - intuitive navigation and visual hierarchy
+- 🚀 **Accessible Mobile Menu** - keyboard navigable with proper ARIA attributes
 
 ## 🛠️ Technologies Used
 
@@ -26,9 +27,9 @@ Modern, responsive portfolio website for a Frontend Developer with dark theme an
   - CSS Custom Properties for theming
   - Responsive image carousels
   - Lightbox modal styling
-  - Smooth transitions and animations
+  - Mobile menu with smooth transitions
   - Mobile-first responsive design
-- **Google Fonts** - Poppins typography
+- **Google Fonts** - Inter font family
 
 ## 📁 Project Structure
 
@@ -36,9 +37,8 @@ Modern, responsive portfolio website for a Frontend Developer with dark theme an
 portfolio/
 ├── index.html               # Main portfolio page
 ├── styles.css               # Main styles including carousel and lightbox
-├── script.js                # Core functionality
+├── mobile-menu.js           # Mobile menu functionality
 ├── lightbox.js              # Lightbox implementation
-├── blog.js                  # Blog page scripts
 ├── cookie.css               # Cookie consent styles
 ├── sitemap.xml              # SEO sitemap
 ├── robots.txt               # Search engine instructions
@@ -49,6 +49,7 @@ portfolio/
 ├── fitforge2.png            # FitForge project image 2
 ├── pillas1.png              # Pillas project image 1
 ├── pillas2.png              # Pillas project image 2
+└── főkép.jpg                # Profile/hero image
 └── README.md                # Project documentation
 ```
 
