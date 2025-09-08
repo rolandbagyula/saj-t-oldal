@@ -1,36 +1,108 @@
-// Main script (migrated from root script.js) + cookie consent + mobile menu
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (!href) return;
-        // Only prevent default for internal anchor links (starting with #)
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const targetId = href.substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-        // External links will work normally
-    });
-});
-
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    if (header) {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(26, 26, 26, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-        } else {
-            header.style.background = 'rgba(26, 26, 26, 0.95)';
-            header.style.boxShadow = 'none';
+// Lightbox functionality for project images
+function initLightbox() {
+    console.log('Initializing lightbox...');
+    
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    
+    let currentGallery = '';
+    let currentIndex = 0;
+    let images = [];
+    
+    // Function to show image in lightbox
+    function showImage(index) {
+        if (images.length === 0) return;
+        
+        currentIndex = index;
+        const img = images[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        if (lightboxTitle) {
+            lightboxTitle.textContent = img.dataset.title || img.alt;
         }
     }
-});
+    
+    // Next/previous image navigation
+    function showNext() {
+        if (images.length === 0) return;
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+    
+    function showPrev() {
+        if (images.length === 0) return;
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+    }
+    
+    // Click handler for project images
+    document.addEventListener('click', function(e) {
+        const projectImage = e.target.closest('.project-image');
+        if (projectImage) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Get all images in the same lightbox group
+            const galleryName = projectImage.dataset.lightbox;
+            currentGallery = galleryName;
+            images = Array.from(document.querySelectorAll(`.project-image[data-lightbox="${galleryName}"]`));
+            currentIndex = images.findIndex(img => img === projectImage);
+            
+            // Show the clicked image
+            showImage(currentIndex);
+            lightbox.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close lightbox
+        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Navigation buttons
+    if (lightboxPrev) {
+        lightboxPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showPrev();
+        });
+    }
+    
+    if (lightboxNext) {
+        lightboxNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNext();
+        });
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('show')) return;
+        
+        if (e.key === 'Escape') {
+            lightbox.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        } else if (e.key === 'ArrowRight') {
+            showNext();
+        } else if (e.key === 'ArrowLeft') {
+            showPrev();
+        }
+    });
+}
+
+// Initialize when the DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLightbox);
+} else {
+    // `DOMContentLoaded` has already fired
+    setTimeout(initLightbox, 0);
+}
+
 
 // Animate stats numbers
 function animateStats() {
@@ -71,18 +143,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.service-card, .skill-item, .stat-item');
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-    });
-
-    const statsSection = document.querySelector('.stats');
-    if (statsSection) observer.observe(statsSection);
 
     // CTA Button click handler
     const ctaButton = document.querySelector('.cta-button');
@@ -117,120 +177,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.pageYOffset > 300) backToTopBtn.classList.add('show');
             else backToTopBtn.classList.remove('show');
         });
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // Mobile menu toggle
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('.nav');
-    if (mobileBtn && nav) {
-        mobileBtn.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-        // Close on link click (mobile)
-        nav.querySelectorAll('.nav-link').forEach(a => a.addEventListener('click', () => {
-            nav.classList.remove('active');
-        }));
-    }
-
-    // Cookie consent
-    initCookieConsent();
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroImage = document.querySelector('.hero-image .image-placeholder');
-    if (heroImage) heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-});
-
-// Hover effects
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-15px) scale(1.02)';
-        this.style.boxShadow = '0 20px 40px rgba(0, 212, 170, 0.2)';
-    });
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
-    });
-});
-
-document.querySelectorAll('.cta-button, .view-all-btn').forEach(btn => {
-    btn.addEventListener('mouseenter', function() {
-        this.style.boxShadow = '0 0 30px rgba(0, 212, 170, 0.6)';
-    });
-    btn.addEventListener('mouseleave', function() {
-        this.style.boxShadow = 'none';
-    });
-});
-
-// Cookie consent implementation
-function initCookieConsent() {
-    const banner = document.getElementById('cookieBanner');
-    if (!banner) return;
-    const accepted = localStorage.getItem('cookie_consent');
-    if (!accepted) {
-        banner.classList.add('show');
-    }
-    const acceptBtn = document.getElementById('cookieAccept');
-    const denyBtn = document.getElementById('cookieDeny');
-    if (acceptBtn) acceptBtn.addEventListener('click', () => {
-        localStorage.setItem('cookie_consent', 'accepted');
-        banner.classList.remove('show');
-    });
-    if (denyBtn) denyBtn.addEventListener('click', () => {
-        localStorage.setItem('cookie_consent', 'denied');
-        banner.classList.remove('show');
-    });
-}
-
-// Expose global scrollToTop for header image click
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Bind UI events without inline handlers
-document.addEventListener('DOMContentLoaded', () => {
-    // Header image click -> scroll top
-    const headerImg = document.querySelector('.header-image');
-    if (headerImg) {
-        headerImg.style.cursor = 'pointer';
-        headerImg.addEventListener('click', scrollToTop);
-    }
-
-    // Contact form: AJAX submit to Formspree with status message
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        const action = contactForm.getAttribute('action') || '';
-        // Demo handler only for old placeholder endpoint
-        if (action === '/api/contact') {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Űrlap elküldve! (Demo verzió)');
-            });
-        }
-        // Formspree AJAX handling
-        if (action.includes('formspree.io')) {
-            contactForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const statusEl = document.getElementById('formStatus');
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                statusEl.textContent = 'Küldés folyamatban…';
-                statusEl.className = 'form-status';
-                submitBtn.disabled = true;
-
-                try {
-                    const formData = new FormData(contactForm);
-                    const res = await fetch(action, {
                         method: 'POST',
                         headers: { 'Accept': 'application/json' },
                         body: formData
                     });
                     if (res.ok) {
-                        statusEl.textContent = 'Köszönöm! Az üzenetedet sikeresen elküldtük.';
+                        statusEl.textContent = 'Köszönöm az üzenetedet, hamarosan jelentkezem!';
                         statusEl.classList.add('success');
                         contactForm.reset();
                     } else {

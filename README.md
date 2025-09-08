@@ -1,6 +1,6 @@
 # 🌟 Roland Portfolio Website
 
-Modern, responsive portfolio website for a Frontend Developer with dark theme and cyan accents. Fully optimized for UI/UX with enhanced accessibility and mobile experience.
+Modern, responsive portfolio website for a Frontend Developer with dark theme and cyan accents. Features an interactive project showcase with image carousels and lightbox functionality.
 
 ## 🚀 Live Demo
 
@@ -10,49 +10,56 @@ Modern, responsive portfolio website for a Frontend Developer with dark theme an
 
 - 🎨 **Modern Dark Theme** with cyan accent colors (#00d4aa)
 - 📱 **Fully Responsive** design (mobile, tablet, desktop)
-- ⚡ **Enhanced Animations** - micro-interactions and smooth hover effects
-- 🔄 **Interactive Navigation** with smooth scrolling and mobile menu
-- 📝 **Blog System** with category filtering and unified card design
-- 💼 **Project Showcase** with 3-column grid layout
-- ⬆️ **Back to Top Button** with pulse animation
-- 🎯 **SEO & Accessibility Optimized** - ARIA labels, focus states, skip links
-- 📱 **Mobile UX Enhanced** - 44px touch targets, gesture support
-- ✨ **UI/UX Optimized** - visual hierarchy, enhanced CTA buttons
+- 🖼️ **Interactive Project Gallery** with image carousels and lightbox
+- ⚡ **Smooth Animations** - micro-interactions and hover effects
+- 🔄 **Image Lightbox** - click to enlarge project screenshots
+- 🎯 **SEO & Accessibility Optimized** - ARIA labels, semantic HTML
+- 📱 **Mobile-Friendly** - touch controls and responsive layouts
+- ✨ **UI/UX Focused** - intuitive navigation and visual hierarchy
 
 ## 🛠️ Technologies Used
 
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with Flexbox/Grid
-- **JavaScript** - Vanilla JS for interactions
-- **Flaticon UIcons + inline SVG** - Icons
+- **HTML5** - Semantic markup with ARIA attributes
+- **CSS3** - Flexbox/Grid layouts and animations
+- **Vanilla JavaScript** - For interactive elements
+- **Custom Styling (styles.css)**
+  - CSS Custom Properties for theming
+  - Responsive image carousels
+  - Lightbox modal styling
+  - Smooth transitions and animations
+  - Mobile-first responsive design
 - **Google Fonts** - Poppins typography
 
 ## 📁 Project Structure
 
 ```
-rolandportfolio/
-├── index.html               # Homepage
-├── blog.html                # Blog index
-├── react-hooks-tutorial.html# Sample blog post
-├── styles.css               # Main styles
-├── cookie.css               # Cookie banner styles
-├── script.js                # Site JS (menu, scroll, contact form, etc.)
-├── blog.js                  # Blog page JS
-├── sitemap.xml              # Sitemap
-├── robots.txt               # Robots
-├── 404.html                 # Not found page
-├── főkép.jpg                # Profile image
-└── README.md                # Documentation
+portfolio/
+├── index.html               # Main portfolio page
+├── styles.css               # Main styles including carousel and lightbox
+├── script.js                # Core functionality
+├── lightbox.js              # Lightbox implementation
+├── blog.js                  # Blog page scripts
+├── cookie.css               # Cookie consent styles
+├── sitemap.xml              # SEO sitemap
+├── robots.txt               # Search engine instructions
+├── 404.html                 # Custom 404 page
+├── barber1.png              # Barber shop project image 1
+├── barber2.png              # Barber shop project image 2
+├── fitforge1.png            # FitForge project image 1
+├── fitforge2.png            # FitForge project image 2
+├── pillas1.png              # Pillas project image 1
+├── pillas2.png              # Pillas project image 2
+└── README.md                # Project documentation
 ```
 
 ## 🎯 Sections
 
 ### 🏠 Homepage (index.html)
-- **Hero Section** - Animated title with "KREATÍV" highlight
-- **About Section** - Personal introduction
-- **Services Section** - Offered services
-- **Projects Section** - Portfolio showcase with cards
-- **Contact Section** - Contact information
+- Hero section with call-to-action
+- Skills showcase with animated progress bars
+- Interactive project gallery with image carousels
+- Lightbox for detailed project views
+- Contact form with validation
 
 ### 📝 Blog (blog.html)
 - **Blog Posts** - Technical articles and tutorials

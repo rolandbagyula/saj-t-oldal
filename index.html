@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Version: 20240908-01 -->
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
@@ -39,7 +40,6 @@
                 <a href="#about" class="nav-link">RÓLAM</a>
                 <a href="#services" class="nav-link">SZOLGÁLTATÁSOK</a>
                 <a href="#projects" class="nav-link">PROJEKTEK</a>
-                <a href="blog.html" class="nav-link">BLOG</a>
                 <a href="#contact" class="nav-link">KAPCSOLAT</a>
             </nav>
             <div class="mobile-menu-btn">
@@ -75,7 +75,7 @@
                     <div class="section-label">RÓLAM</div>
                     <h2 class="section-title section-title-enhanced">KI <span class="highlight">VAGYOK?</span></h2>
                     <p class="about-description">
-                        Szia, Roland vagyok, frontend fejlesztő és webdesigner. Nálam nincs hülye vagy túl sok kérdés. A legfontosabb számomra, hogy elégedett legyél a végeredménnyel.
+                        Szia, Roland vagyok, frontend fejlesztő és webdesigner. Nálam nincs fura vagy túl sok kérdés. A legfontosabb számomra, hogy elégedett legyél a végeredménnyel.
                     </p>
                     
                     <div class="skills">
@@ -127,6 +127,14 @@
                     <p>Felhasználóbarát interfészek és élmények tervezése.</p>
                 </div>
                 
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fi fi-rr-settings"></i>
+                    </div>
+                    <h3>Karbantartás</h3>
+                    <p>Rendszeres frissítések, biztonsági mentések és teljesítmény-optimalizálás.</p>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -147,18 +155,15 @@
             <div class="projects-grid">
                 <article class="post-card">
                     <div class="post-image">
-                        <div class="image-placeholder">
-                            <!-- Eyelash icon (inline SVG) -->
-                            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Eyelash icon" role="img">
-                                <path d="M2 12c2.5-3 5.5-5 10-5s7.5 2 10 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="currentColor"/>
-                                <path d="M6 8L5 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                                <path d="M9 7L8.7 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                                <path d="M15 7L15.3 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                                <path d="M18 8L19 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                            </svg>
+                        <div class="image-carousel">
+                            <img src="pillas1.png" alt="Műszempilla építés - 1. kép" class="project-image active" data-lightbox="szempilla" data-title="Műszempilla építés - 1. kép">
+                            <img src="pillas2.png" alt="Műszempilla építés - 2. kép" class="project-image" data-lightbox="szempilla" data-title="Műszempilla építés - 2. kép">
                         </div>
                         <div class="post-category">Szempilla</div>
+                        <div class="carousel-controls">
+                            <button class="carousel-prev" aria-label="Előző kép">❮</button>
+                            <button class="carousel-next" aria-label="Következő kép">❯</button>
+                        </div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
@@ -180,101 +185,19 @@
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
                         </div>
-                        <a href="https://rolandbagyula.github.io/pill-s-oldal/" class="read-more" target="_blank" rel="noopener">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
                     </div>
                 </article>
                 <article class="post-card">
                     <div class="post-image">
-                        <div class="image-placeholder">
-                            <!-- Paint palette icon (inline SVG) -->
-                            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Paint palette icon" role="img">
-                                <path d="M12 3c-5 0-9 3.8-9 8.5C3 15.9 5.7 18 9 18h2.5c.8 0 1.5.7 1.5 1.5S12.8 21 12 21c5 0 9-3.8 9-8.5S17 3 12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="8" cy="10" r="1" fill="currentColor"/>
-                                <circle cx="11" cy="8" r="1" fill="currentColor"/>
-                                <circle cx="14" cy="10" r="1" fill="currentColor"/>
-                                <circle cx="10" cy="13" r="1" fill="currentColor"/>
-                            </svg>
+                        <div class="image-carousel">
+                            <img src="barber1.png" alt="Barber Shop - Borbélyszék" class="project-image active" data-lightbox="barber" data-title="Barber Shop - Borbélyszék">
+                            <img src="barber2.png" alt="Barber Shop - Fodrászati szolgáltatások" class="project-image" data-lightbox="barber" data-title="Barber Shop - Fodrászati szolgáltatások">
                         </div>
-                        <div class="post-category">Kézműves</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Aug 19.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
+                        <div class="post-category">Fodrászat</div>
+                        <div class="carousel-controls">
+                            <button class="carousel-prev" aria-label="Előző kép">❮</button>
+                            <button class="carousel-next" aria-label="Következő kép">❯</button>
                         </div>
-                        <h3 class="post-title">Süthető gyurma kézműves oldal</h3>
-                        <p class="post-excerpt">
-                            Bemutató weboldal süthető gyurmával készült kézműves termékekhez. Letisztult, reszponzív megjelenés.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                        <a href="https://rolandbagyula.github.io/gyurmacko/" class="read-more" target="_blank" rel="noopener">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
-                <article class="post-card">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <!-- Wrench/Cog icon (inline SVG) -->
-                            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Wrench icon" role="img">
-                                <path d="M21 7a5 5 0 0 1-7 4.58l-6.7 6.7a2 2 0 1 1-2.83-2.83l6.7-6.7A5 5 0 1 1 21 7Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="6" cy="19" r="1.5" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <div class="post-category">Lézervágás</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Aug 19.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h3 class="post-title">Lézervágás és alkatrészek</h3>
-                        <p class="post-excerpt">
-                            Bemutató oldal lézer vágással és alkatrészgyártással foglalkozó szolgáltatáshoz. Letisztult, reszponzív felépítés.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                        <a href="https://rolandbagyula.github.io/l-zer/" class="read-more" target="_blank" rel="noopener">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
-                <article class="post-card">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <!-- Dumbbell icon (inline SVG) for FitForge -->
-                            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dumbbell icon" role="img">
-                                <path d="M6 5h12v14H6z" stroke="currentColor" stroke-width="1.6"/>
-                                <path d="M6 9h12M6 15h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                                <path d="M3 12h3m15 0h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-                                <path d="M12 12h0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div class="post-category">Fitness</div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
@@ -287,59 +210,52 @@
                                 Élő Demo
                             </span>
                         </div>
-                        <h3 class="post-title">FitForge - Fitness App</h3>
+                        <h3 class="post-title">Barber Shop - Férfi Fodrászat</h3>
                         <p class="post-excerpt">
-                            Modern fitness alkalmazás edzéstervek követéséhez és eredmények nyomon követéséhez. Responszív design és interaktív elemek.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">CSS Modules</span>
-                        </div>
-                        <a href="https://rolandbagyula.github.io/fitforge/" class="read-more" target="_blank" rel="noopener">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="post-card">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <!-- House icon (inline SVG) -->
-                            <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="House icon" role="img">
-                                <path d="M3 10.5 12 4l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 10.5 12 4l9 6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="post-category">Szállás</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Aug 19.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h3 class="post-title">Faház bérlés weboldal</h3>
-                        <p class="post-excerpt">
-                            Bemutató oldal faházak bérléséhez. Tiszta, reszponzív megjelenés és modern UX.
+                            Modern fodrászati szalon weboldal férfiak számára. Időpontfoglalás, szolgáltatások bemutatása és stílustippek.
                         </p>
                         <div class="post-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
                         </div>
-                        <a href="https://rolandbagyula.github.io/fah-z/" class="read-more" target="_blank" rel="noopener">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
                     </div>
                 </article>
+                <article class="post-card">
+                    <div class="post-image">
+                        <div class="image-carousel">
+                            <img src="fitforge1.png" alt="FitForge App - Főképernyő" class="project-image active" data-lightbox="fitforge" data-title="FitForge App - Főképernyő">
+                            <img src="fitforge2.png" alt="FitForge App - Edzésterv" class="project-image" data-lightbox="fitforge" data-title="FitForge App - Edzésterv">
+                        </div>
+                        <div class="post-category">Fitness</div>
+                        <div class="carousel-controls">
+                            <button class="carousel-prev" aria-label="Előző kép">❮</button>
+                            <button class="carousel-next" aria-label="Következő kép">❯</button>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-date">
+                                <i class="fi fi-rr-calendar"></i>
+                                2025. Szept 1.
+                            </span>
+                            <span class="post-read-time">
+                                <i class="fi fi-rr-eye"></i>
+                                Élő Demo
+                            </span>
+                        </div>
+                        <h3 class="post-title">FitForge - Fitness Website</h3>
+                        <p class="post-excerpt">
+                            Modern fitness alkalmazás edzéstervek követéséhez és eredmények nyomon követéséhez. Responszív design és interaktív elemek.
+                        </p>
+                        <div class="post-tags">
+                            <span class="tag">Html</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </article>
+                
             </div>
         </div>
     </section>
@@ -350,10 +266,9 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="section-label">KAPCSOLAT</div>
-                    <h2 class="section-title section-title-enhanced">VEDD FEL A <span class="highlight">KAPCSOLATOT</span></h2>
+                    <h2 class="section-title section-title-enhanced">Szeretnél egy <span class="highlight">weboldalt</span>?</h2>
                     <p class="contact-description">
-                        Van egy projekted? Keress bátran! Szívesen segítek megvalósítani 
-                        a digitális álmaidat.
+                        Írj nekem egy üzenetet az elképzelésedről, dőlj hátra, a többit én intézem!
                     </p>
                     
                     <div class="contact-details">
@@ -426,6 +341,18 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-nav lightbox-prev" aria-label="Előző kép">❮</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-image">
+            <div id="lightbox-title" class="lightbox-title"></div>
+        </div>
+        <button class="lightbox-nav lightbox-next" aria-label="Következő kép">❯</button>
+    </div>
+    
+    <script src="script.js?v=20240908"></script>
+    <script src="lightbox.js"></script>
 </body>
 </html>
