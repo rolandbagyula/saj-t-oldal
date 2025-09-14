@@ -9,8 +9,7 @@
     <meta http-equiv="Expires" content="0">
     <title>Roland Portfolio - Webfejleszto</title>
     <meta name="description" content="Roland webfejlesztő portfoliója. Modern weboldalak, React alkalmazások és kreatív megoldások. Lépj kapcsolatba a projektjeidhez!">
-    <link rel="stylesheet" href="styles.css?v=20250819">
-    <link rel="stylesheet" href="cookie.css?v=20250819">
+    <link rel="stylesheet" href="styles.css?v=20240914">
     <link rel="icon" href="főkép.jpg" type="image/jpeg">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Roland Portfolio - Webfejlesztő">
@@ -18,15 +17,19 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="főkép.jpg">
     <meta property="og:locale" content="hu_HU">
-    <!-- Flaticon UIcons -->
+    <!-- Icons and Fonts -->
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
     <meta name="twitter:card" content="summary_large_image">
-    <!-- TODO: Állítsd be a kanonikus URL-t az éles domainre -->
     <link rel="canonical" href="https://rolandbagyula.github.io/rolandportfolio/">
-    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
     
+    <!-- Language Files -->
+    <script src="js/languages.js"></script>
+    
+    <!-- Mobile Menu -->
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <script src="js/language-switcher.js" defer></script>
     
     <!-- JS áthelyezve a külső fájlba: script.js -->
 </head>
@@ -38,12 +41,12 @@
             <div class="logo">
                 <img src="főkép.jpg" alt="Főkép" class="header-image">
             </div>
-            <nav class="nav">
-                <a href="#home" class="nav-link">HOME</a>
-                <a href="#about" class="nav-link">RÓLAM</a>
-                <a href="#services" class="nav-link">SZOLGÁLTATÁSOK</a>
-                <a href="#projects" class="nav-link">PROJEKTEK</a>
-                <a href="#contact" class="nav-link">KAPCSOLAT</a>
+            <nav class="nav" id="main-nav">
+                <a href="#home" class="nav-link" data-i18n="nav.home">HOME</a>
+                <a href="#about" class="nav-link" data-i18n="nav.about">RÓLAM</a>
+                <a href="#services" class="nav-link" data-i18n="nav.services">SZOLGÁLTATÁSOK</a>
+                <a href="#projects" class="nav-link" data-i18n="nav.projects">PROJEKTEK</a>
+                <a href="#contact" class="nav-link" data-i18n="nav.contact">KAPCSOLAT</a>
             </nav>
             <button class="mobile-menu-btn" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="main-nav">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,11 +64,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">
+                    <h1 class="hero-title" data-i18n="hero.title">
                         A TE <span class="highlight-fade">KREATÍV</span><br>
                         FEJLESZTŐD
                     </h1>
-                    <a href="#projects" class="cta-button cta-primary">PROJEKTEK MEGTEKINTÉSE</a>
+                    <a href="#projects" class="cta-button cta-primary" data-i18n="hero.button">PROJEKTEK MEGTEKINTÉSE</a>
                 </div>
             </div>
         </div>
@@ -80,29 +83,39 @@
                 </div>
                 <div class="about-text">
                     <div class="section-label">RÓLAM</div>
-                    <h2 class="section-title section-title-enhanced">KI <span class="highlight">VAGYOK?</span></h2>
-                    <p class="about-description">
+                    <h2 class="section-title section-title-enhanced" data-i18n="about.title">KI <span class="highlight">VAGYOK?</span></h2>
+                    <p class="about-description" data-i18n="about.description">
                         Szia, Roland vagyok, frontend fejlesztő és webdesigner. Nálam nincs fura vagy túl sok kérdés. A legfontosabb számomra, hogy elégedett legyél a végeredménnyel.
                     </p>
                     
                     <div class="skills">
                         <div class="skill-item">
                             <div class="skill-icon">
-                                💻
+                                <i class="fas fa-code fa-lg"></i>
                             </div>
                             <div class="skill-content">
-                                <h4>Clean Code</h4>
-                                <p>Tiszta, optimalizált és jól dokumentált kód.</p>
+                                <h4 data-i18n="skills.cleanCode.title">Clean Code</h4>
+                                <p data-i18n="skills.cleanCode.desc">Tiszta, optimalizált és jól dokumentált kód.</p>
                             </div>
                         </div>
                         
                         <div class="skill-item">
                             <div class="skill-icon">
-                                🎨
+                                <i class="fas fa-paint-brush fa-lg"></i>
                             </div>
                             <div class="skill-content">
-                                <h4>Modern Design</h4>
-                                <p>Modern, reszponzív és felhasználóbarát design.</p>
+                                <h4 data-i18n="skills.modernDesign.title">Modern Design</h4>
+                                <p data-i18n="skills.modernDesign.desc">Modern, reszponzív és felhasználóbarát design.</p>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <i class="fas fa-tags fa-lg"></i>
+                            </div>
+                            <div class="skill-content">
+                                <h4 data-i18n="skills.affordable.title">Megfizethető áron</h4>
+                                <p data-i18n="skills.affordable.desc">Versenyképes árakkal dolgozom, hogy mindenki számára elérhető legyen a minőségi weboldal.</p>
                             </div>
                         </div>
                     </div>
@@ -152,39 +165,38 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">PROJEKTEK</div>
-                <h2 class="section-title section-title-enhanced">LEGUTÓBBI <span class="highlight">MUNKÁK</span></h2>
-                <p class="section-description">
-                    Íme néhány projekt, amelyeken dolgoztam. Minden projekt egyedi kihívásokat 
-                    és kreatív megoldásokat tartalmaz.
+                <h2 class="section-title section-title-enhanced" data-i18n="projects.title">LEGUTÓBBI <span class="highlight">MUNKÁK</span></h2>
+                <p class="section-description" data-i18n="projects.description">
+                    Íme néhány projekt, amelyeken dolgoztam. Minden projekt egyedi kihívásokat és kreatív megoldásokat tartalmaz.
                 </p>
             </div>
             
             <div class="projects-grid">
-                <article class="post-card">
+                <article class="post-card" data-i18n-project="eyelash">
                     <div class="post-image">
                         <div class="image-carousel">
-                            <img src="pillas1.png" alt="Műszempilla építés - 1. kép" class="project-image active" data-lightbox="szempilla" data-title="Műszempilla építés - 1. kép">
-                            <img src="pillas2.png" alt="Műszempilla építés - 2. kép" class="project-image" data-lightbox="szempilla" data-title="Műszempilla építés - 2. kép">
+                            <img src="pillas1.png" alt="Műszempilla építés - 1. kép" class="project-image active" data-lightbox="szempilla" data-i18n-alt="projects.eyelash.image1_alt" data-title="Műszempilla építés - 1. kép">
+                            <img src="pillas2.png" alt="Műszempilla építés - 2. kép" class="project-image" data-lightbox="szempilla" data-i18n-alt="projects.eyelash.image2_alt" data-title="Műszempilla építés - 2. kép">
                         </div>
-                        <div class="post-category">Szempilla</div>
+                        <div class="post-category" data-i18n="projects.eyelash.category">Szempilla</div>
                         <div class="carousel-controls">
-                            <button class="carousel-prev" aria-label="Előző kép">❮</button>
-                            <button class="carousel-next" aria-label="Következő kép">❯</button>
+                            <button class="carousel-prev" data-i18n-aria-label="projects.carousel.prev" aria-label="Előző kép">❮</button>
+                            <button class="carousel-next" data-i18n-aria-label="projects.carousel.next" aria-label="Következő kép">❯</button>
                         </div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-date">
                                 <i class="fi fi-rr-calendar"></i>
-                                2025. Aug 19.
+                                <span data-i18n="projects.eyelash.date">2025. Aug 19.</span>
                             </span>
                             <span class="post-read-time">
                                 <i class="fi fi-rr-eye"></i>
-                                Élő Demo
+                                <span data-i18n="projects.live_demo">Élő Demo</span>
                             </span>
                         </div>
-                        <h3 class="post-title">Műszempilla építés weboldal</h3>
-                        <p class="post-excerpt">
+                        <h3 class="post-title" data-i18n="projects.eyelash.title">Műszempilla építés weboldal</h3>
+                        <p class="post-excerpt" data-i18n="projects.eyelash.description">
                             Bemutató oldal műszempilla építéssel foglalkozó szolgáltatáshoz. Modern, reszponzív felépítés és letisztult design.
                         </p>
                         <div class="post-tags">
@@ -194,47 +206,48 @@
                         </div>
                     </div>
                 </article>
-                <article class="post-card">
+                <article class="post-card" data-i18n-project="barber">
                     <div class="post-image">
                         <div class="image-carousel">
-                            <img src="barber1.png" alt="Barber Shop - Borbélyszék" class="project-image active" data-lightbox="barber" data-title="Barber Shop - Borbélyszék">
-                            <img src="barber2.png" alt="Barber Shop - Fodrászati szolgáltatások" class="project-image" data-lightbox="barber" data-title="Barber Shop - Fodrászati szolgáltatások">
+                            <img src="barber1.png" alt="Barber Shop - Borbélyszék" class="project-image active" data-lightbox="barber" data-i18n-alt="projects.barber.image1_alt" data-title="Barber Shop - Borbélyszék">
+                            <img src="barber2.png" alt="Barber Shop - Fodrászati szolgáltatások" class="project-image" data-lightbox="barber" data-i18n-alt="projects.barber.image2_alt" data-title="Barber Shop - Fodrászati szolgáltatások">
                         </div>
-                        <div class="post-category">Fodrászat</div>
+                        <div class="post-category" data-i18n="projects.barber.category">Fodrászat</div>
                         <div class="carousel-controls">
-                            <button class="carousel-prev" aria-label="Előző kép">❮</button>
-                            <button class="carousel-next" aria-label="Következő kép">❯</button>
+                            <button class="carousel-prev" data-i18n-aria-label="projects.carousel.prev" aria-label="Előző kép">❮</button>
+                            <button class="carousel-next" data-i18n-aria-label="projects.carousel.next" aria-label="Következő kép">❯</button>
                         </div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-date">
                                 <i class="fi fi-rr-calendar"></i>
-                                2025. Szept 1.
+                                <span data-i18n="projects.barber.date">2025. Jún 15.</span>
                             </span>
                             <span class="post-read-time">
                                 <i class="fi fi-rr-eye"></i>
-                                Élő Demo
+                                <span data-i18n="projects.live_demo">Élő Demo</span>
                             </span>
                         </div>
-                        <h3 class="post-title">Barber Shop - Férfi Fodrászat</h3>
-                        <p class="post-excerpt">
-                            Modern fodrászati szalon weboldal férfiak számára. Időpontfoglalás, szolgáltatások bemutatása és stílustippek.
+                        <h3 class="post-title" data-i18n="projects.barber.title">Barber Shop weboldal</h3>
+                        <p class="post-excerpt" data-i18n="projects.barber.description">
+                            Modern borbély szalon weboldal foglalási rendszerrel. A látogatók könnyedén időpontot foglalhatnak és megtekinthetik a szolgáltatásokat.
                         </p>
                         <div class="post-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
+                            <span class="tag">PHP</span>
                         </div>
                     </div>
                 </article>
-                <article class="post-card">
+                <article class="post-card" data-i18n-project="fitforge">
                     <div class="post-image">
                         <div class="image-carousel">
                             <img src="fitforge1.png" alt="FitForge App - Főképernyő" class="project-image active" data-lightbox="fitforge" data-title="FitForge App - Főképernyő">
                             <img src="fitforge2.png" alt="FitForge App - Edzésterv" class="project-image" data-lightbox="fitforge" data-title="FitForge App - Edzésterv">
                         </div>
-                        <div class="post-category">Fitness</div>
+                        <div class="post-category" data-i18n="projects.fitforge.category">Fitness</div>
                         <div class="carousel-controls">
                             <button class="carousel-prev" aria-label="Előző kép">❮</button>
                             <button class="carousel-next" aria-label="Következő kép">❯</button>
@@ -273,8 +286,8 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="section-label">KAPCSOLAT</div>
-                    <h2 class="section-title section-title-enhanced">Szeretnél egy <span class="highlight">weboldalt</span>?</h2>
-                    <p class="contact-description">
+                    <h2 class="section-title section-title-enhanced" data-i18n="contact.title">SZERETNÉL EGY <span class="highlight">WEBOLDALT</span>?</h2>
+                    <p class="contact-description" data-i18n="contact.description">
                         Írj nekem egy üzenetet az elképzelésedről, dőlj hátra, a többit én intézem!
                     </p>
                     
@@ -284,7 +297,7 @@
                                 ✉️
                             </div>
                             <div class="contact-text">
-                                <h4>Email</h4>
+                                <h4 data-i18n="contact.email">Email</h4>
                                 <p><a href="mailto:rolandbdesign@gmail.com" class="contact-email" aria-label="Email küldése Rolandnak">rolandbdesign@gmail.com</a></p>
                             </div>
                         </div>
@@ -294,8 +307,8 @@
                                 📍
                             </div>
                             <div class="contact-text">
-                                <h4>Helyszín</h4>
-                                <p>Békéscsaba, Magyarország</p>
+                                <h4 data-i18n="contact.location">Helyszín</h4>
+                                <p data-i18n="contact.locationText">Békéscsaba, Magyarország</p>
                             </div>
                         </div>
                     </div>
@@ -304,20 +317,20 @@
                 <div class="contact-form">
                     <form action="https://formspree.io/f/movnazqv" method="POST" id="contactForm">
                         <div class="form-group">
-                            <input type="text" name="name" id="name" placeholder="Neved" required>
+                            <input type="text" name="name" id="name" class="form-control" required data-i18n-placeholder="contact.form.name">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" id="email" placeholder="Email címed" required>
+                            <input type="email" name="email" id="email" class="form-control" required data-i18n-placeholder="contact.form.email">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" id="subject" placeholder="Tárgy" required>
+                            <input type="text" name="subject" id="subject" class="form-control" required data-i18n-placeholder="contact.form.subject" placeholder="Tárgy">
                         </div>
                         <div class="form-group">
-                            <textarea name="message" id="message" placeholder="Üzeneted" rows="5" required></textarea>
+                            <textarea name="message" id="message" class="form-control" rows="5" required data-i18n-placeholder="contact.form.message"></textarea>
                         </div>
                         <input type="hidden" name="_subject" value="Új üzenet a portfólió oldalról">
                         <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
-                        <button type="submit" class="modern-submit-btn">ÜZENET KÜLDÉSE</button>
+                            <button type="submit" class="modern-submit-btn" data-i18n="contact.form.button">ÜZENET KÜLDÉSE</button>
                     </form>
                 </div>
             </div>
@@ -327,7 +340,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Roland. Minden jog fenntartva.</p>
+            <p data-i18n="footer">&copy; 2024 Roland Bagyula. Minden jog fenntartva.</p>
         </div>
     </footer>
     </main>

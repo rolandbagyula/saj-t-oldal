@@ -1,0 +1,91 @@
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+    position: relative;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media (max-width: 992px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--primary-bg);
+        flex-direction: column;
+        padding: 80px 20px 20px;
+        z-index: 999;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        display: flex !important;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px 15px;
+        margin: 5px 0;
+        border-radius: 4px;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .language-switcher {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        font-weight: bold;
+        color: var(--text-color);
+    }
+
+    /* Ensure the menu is on top of other content */
+    .header {
+        position: relative;
+        z-index: 1000;
+    }
+}
