@@ -1,6 +1,6 @@
 # 🌟 Roland Portfolio Website
 
-Modern, responsive portfolio website for a Frontend Developer with dark theme and cyan accents. Features an interactive project showcase with image carousels, lightbox functionality, and an accessible mobile menu.
+Modern, responsive portfolio website for a Frontend Developer with dark theme and cyan accents. Features an interactive project showcase and an accessible mobile menu.
 
 ## 🚀 Live Demo
 
@@ -10,9 +10,8 @@ Modern, responsive portfolio website for a Frontend Developer with dark theme an
 
 - 🎨 **Modern Dark Theme** with cyan accent colors (#00d4aa)
 - 📱 **Fully Responsive** design (mobile, tablet, desktop)
-- 🖼️ **Interactive Project Gallery** with image carousels and lightbox
+- 🖼️ **Project Showcase** - clean and professional project display
 - ⚡ **Smooth Animations** - micro-interactions and hover effects
-- 🔄 **Image Lightbox** - click to enlarge project screenshots
 - 🎯 **SEO & Accessibility Optimized** - ARIA labels, semantic HTML
 - 📱 **Mobile-Friendly** - touch controls and responsive layouts
 - ✨ **UI/UX Focused** - intuitive navigation and visual hierarchy

@@ -29,9 +29,12 @@
     
     <!-- Mobile Menu -->
     <link rel="stylesheet" href="css/mobile-menu.css">
-    <script src="js/language-switcher.js" defer></script>
+    
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="css/cookie-consent.css">
     
     <!-- JS áthelyezve a külső fájlba: script.js -->
+    <script src="js/language-switcher.js" defer></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Ugrás a tartalomhoz</a>
@@ -167,22 +170,20 @@
                 <div class="section-label">PROJEKTEK</div>
                 <h2 class="section-title section-title-enhanced" data-i18n="projects.title">LEGUTÓBBI <span class="highlight">MUNKÁK</span></h2>
                 <p class="section-description" data-i18n="projects.description">
-                    Íme néhány projekt, amelyeken dolgoztam. Minden projekt egyedi kihívásokat és kreatív megoldásokat tartalmaz.
+                    A sok hangzatos szó helyett inkább mutatok néhány általam készített weboldalt.
                 </p>
             </div>
             
             <div class="projects-grid">
                 <article class="post-card" data-i18n-project="eyelash">
-                    <div class="post-image">
-                        <div class="image-carousel">
-                            <img src="pillas1.png" alt="Műszempilla építés - 1. kép" class="project-image active" data-lightbox="szempilla" data-i18n-alt="projects.eyelash.image1_alt" data-title="Műszempilla építés - 1. kép">
-                            <img src="pillas2.png" alt="Műszempilla építés - 2. kép" class="project-image" data-lightbox="szempilla" data-i18n-alt="projects.eyelash.image2_alt" data-title="Műszempilla építés - 2. kép">
+                    <div class="post-image" style="background-image: url('pillas1.png'); background-size: cover; background-position: center; height: 250px;">
+                        <div class="project-link-container">
+                            <a href="https://rolandbagyula.github.io/pill-s-oldal/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span data-i18n="projects.view_project">Megtekintés az oldalon</span>
+                            </a>
                         </div>
                         <div class="post-category" data-i18n="projects.eyelash.category">Szempilla</div>
-                        <div class="carousel-controls">
-                            <button class="carousel-prev" data-i18n-aria-label="projects.carousel.prev" aria-label="Előző kép">❮</button>
-                            <button class="carousel-next" data-i18n-aria-label="projects.carousel.next" aria-label="Következő kép">❯</button>
-                        </div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
@@ -192,7 +193,9 @@
                             </span>
                             <span class="post-read-time">
                                 <i class="fi fi-rr-eye"></i>
-                                <span data-i18n="projects.live_demo">Élő Demo</span>
+                                <a href="https://rolandbagyula.github.io/pill-s-oldal/" target="_blank" rel="noopener noreferrer" class="project-demo-link">
+                                    <span data-i18n="projects.live_demo">Élő Demo</span>
+                                </a>
                             </span>
                         </div>
                         <h3 class="post-title" data-i18n="projects.eyelash.title">Műszempilla építés weboldal</h3>
@@ -200,78 +203,68 @@
                             Bemutató oldal műszempilla építéssel foglalkozó szolgáltatáshoz. Modern, reszponzív felépítés és letisztult design.
                         </p>
                         <div class="post-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
                         </div>
                     </div>
                 </article>
                 <article class="post-card" data-i18n-project="barber">
-                    <div class="post-image">
-                        <div class="image-carousel">
-                            <img src="barber1.png" alt="Barber Shop - Borbélyszék" class="project-image active" data-lightbox="barber" data-i18n-alt="projects.barber.image1_alt" data-title="Barber Shop - Borbélyszék">
-                            <img src="barber2.png" alt="Barber Shop - Fodrászati szolgáltatások" class="project-image" data-lightbox="barber" data-i18n-alt="projects.barber.image2_alt" data-title="Barber Shop - Fodrászati szolgáltatások">
+                    <div class="post-image" style="background-image: url('barber1.png'); background-size: cover; background-position: center; height: 250px;">
+                        <div class="project-link-container">
+                            <a href="https://rolandbagyula.github.io/barber/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span data-i18n="projects.view_project">Megtekintés az oldalon</span>
+                            </a>
                         </div>
-                        <div class="post-category" data-i18n="projects.barber.category">Fodrászat</div>
-                        <div class="carousel-controls">
-                            <button class="carousel-prev" data-i18n-aria-label="projects.carousel.prev" aria-label="Előző kép">❮</button>
-                            <button class="carousel-next" data-i18n-aria-label="projects.carousel.next" aria-label="Következő kép">❯</button>
-                        </div>
+                        <div class="post-category" data-i18n="projects.barber.category">Barber Shop</div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-date">
                                 <i class="fi fi-rr-calendar"></i>
-                                <span data-i18n="projects.barber.date">2025. Jún 15.</span>
+                                <span data-i18n="projects.barber.date">2025. Aug 20.</span>
                             </span>
                             <span class="post-read-time">
                                 <i class="fi fi-rr-eye"></i>
-                                <span data-i18n="projects.live_demo">Élő Demo</span>
+                                <a href="https://rolandbagyula.github.io/barber/" target="_blank" rel="noopener noreferrer" class="project-demo-link">
+                                    <span data-i18n="projects.live_demo">Élő Demo</span>
+                                </a>
                             </span>
                         </div>
                         <h3 class="post-title" data-i18n="projects.barber.title">Barber Shop weboldal</h3>
                         <p class="post-excerpt" data-i18n="projects.barber.description">
-                            Modern borbély szalon weboldal foglalási rendszerrel. A látogatók könnyedén időpontot foglalhatnak és megtekinthetik a szolgáltatásokat.
+                            Modern borbély weboldal foglalási rendszerrel. Letisztult design és felhasználóbarát felület.
                         </p>
                         <div class="post-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">PHP</span>
                         </div>
                     </div>
                 </article>
                 <article class="post-card" data-i18n-project="fitforge">
-                    <div class="post-image">
-                        <div class="image-carousel">
-                            <img src="fitforge1.png" alt="FitForge App - Főképernyő" class="project-image active" data-lightbox="fitforge" data-title="FitForge App - Főképernyő">
-                            <img src="fitforge2.png" alt="FitForge App - Edzésterv" class="project-image" data-lightbox="fitforge" data-title="FitForge App - Edzésterv">
+                    <div class="post-image" style="background-image: url('fitforge1.png'); background-size: cover; background-position: center; height: 250px;">
+                        <div class="project-link-container">
+                            <a href="https://rolandbagyula.github.io/fitforge/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span data-i18n="projects.view_project">Megtekintés az oldalon</span>
+                            </a>
                         </div>
                         <div class="post-category" data-i18n="projects.fitforge.category">Fitness</div>
-                        <div class="carousel-controls">
-                            <button class="carousel-prev" aria-label="Előző kép">❮</button>
-                            <button class="carousel-next" aria-label="Következő kép">❯</button>
-                        </div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-date">
                                 <i class="fi fi-rr-calendar"></i>
-                                2025. Szept 1.
+                                <span data-i18n="projects.fitforge.date">2025. Aug 21.</span>
                             </span>
                             <span class="post-read-time">
                                 <i class="fi fi-rr-eye"></i>
-                                Élő Demo
+                                <a href="https://rolandbagyula.github.io/fitforge/" target="_blank" rel="noopener noreferrer" class="project-demo-link">
+                                    <span data-i18n="projects.live_demo">Élő Demo</span>
+                                </a>
                             </span>
                         </div>
-                        <h3 class="post-title">FitForge - Fitness Website</h3>
-                        <p class="post-excerpt">
-                            Modern fitness alkalmazás edzéstervek követéséhez és eredmények nyomon követéséhez. Responszív design és interaktív elemek.
+                        <h3 class="post-title" data-i18n="projects.fitforge.title">FitForge Fitness weboldal</h3>
+                        <p class="post-excerpt" data-i18n="projects.fitforge.description">
+                            Weboldal edzéstervek követéséhez és élelmiszer-naplózáshoz. Testre szabott edzéstervek és étkezési javaslatok.
                         </p>
                         <div class="post-tags">
-                            <span class="tag">Html</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
                         </div>
                     </div>
                 </article>
@@ -317,15 +310,19 @@
                 <div class="contact-form">
                     <form action="https://formspree.io/f/movnazqv" method="POST" id="contactForm">
                         <div class="form-group">
+                            <label for="name" class="form-label">Név</label>
                             <input type="text" name="name" id="name" class="form-control" required data-i18n-placeholder="contact.form.name">
                         </div>
                         <div class="form-group">
+                            <label for="email" class="form-label">Email cím</label>
                             <input type="email" name="email" id="email" class="form-control" required data-i18n-placeholder="contact.form.email">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" id="subject" class="form-control" required data-i18n-placeholder="contact.form.subject" placeholder="Tárgy">
+                            <label for="subject" class="form-label">Tárgy</label>
+                            <input type="text" name="subject" id="subject" class="form-control" required data-i18n-placeholder="contact.form.subject">
                         </div>
                         <div class="form-group">
+                            <label for="message" class="form-label">Üzenet</label>
                             <textarea name="message" id="message" class="form-control" rows="5" required data-i18n-placeholder="contact.form.message"></textarea>
                         </div>
                         <input type="hidden" name="_subject" value="Új üzenet a portfólió oldalról">
@@ -340,7 +337,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p data-i18n="footer">&copy; 2024 Roland Bagyula. Minden jog fenntartva.</p>
+            <p data-i18n="footer">&copy; 2025 Bagyula Roland. Minden jog fenntartva. | <a href="adatvedelmi-tajekoztato.html" style="color: var(--accent-color);">Adatvédelmi tájékoztató</a></p>
         </div>
     </footer>
     </main>
@@ -350,29 +347,7 @@
         <i class="fi fi-rr-angle-up"></i>
     </button>
 
-    <!-- GDPR Cookie Banner -->
-    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Süti hozzájárulás">
-        <div class="cookie-content">
-            <p>Ez a weboldal sütiket használ a felhasználói élmény javítására. A részleteket az Adatvédelmi tájékoztatóban találod.</p>
-            <div class="cookie-actions">
-                <button id="cookieDeny" class="cookie-btn secondary" type="button">Elutasítom</button>
-                <button id="cookieAccept" class="cookie-btn" type="button">Elfogadom</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <button class="lightbox-nav lightbox-prev" aria-label="Előző kép">❮</button>
-        <div class="lightbox-content">
-            <img src="" alt="" id="lightbox-image">
-            <div id="lightbox-title" class="lightbox-title"></div>
-        </div>
-        <button class="lightbox-nav lightbox-next" aria-label="Következő kép">❯</button>
-    </div>
-    
-    <script src="lightbox.js"></script>
-    <script src="mobile-menu.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/cookie-consent.js" defer></script>
 </body>
 </html>
