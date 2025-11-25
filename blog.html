@@ -1,107 +1,65 @@
 <!DOCTYPE html>
+<!-- Version: 20251125-01 -->
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog – Fejlesztés alatt</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Blog – Roland Webfejlesztő</title>
     <meta name="description" content="Roland webfejlesztő blog oldala. Friss cikkek, tippek és tapasztalatok a webfejlesztés világából. React, JavaScript és modern technológiák.">
-    <link rel="stylesheet" href="styles.css?v=20250819">
-    <link rel="stylesheet" href="cookie.css?v=20250819">
-    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css?v=20240914">
+    <link rel="icon" href="főkép.jpg" type="image/jpeg">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Blog – Roland Webfejlesztő">
+    <meta property="og:description" content="Friss cikkek, tippek és tapasztalatok a webfejlesztés világából. Olvass a legújabb trendekről és technológiákról.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="főkép.jpg">
+    <meta property="og:locale" content="hu_HU">
+    <!-- Icons and Fonts -->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://rolandbagyula.github.io/rolandportfolio/blog.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    
+    <!-- Language Files -->
+    <script src="js/languages.js"></script>
+    
+    <!-- Mobile Menu -->
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    
+    <!-- Blog Styles -->
+    <link rel="stylesheet" href="css/blog.css?v=20251125">
     <style>
-        /* Global font family - Inter for minimal design */
-        * {
-            font-family: 'Inter', sans-serif !important;
+        /* Blog Hero Section */
+        .blog-hero {
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* Logo styling for blog */
-        .logo {
-            display: flex !important;
-            align-items: center !important;
-            gap: 0.8rem !important;
+        .blog-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-weight: 800;
         }
         
-        .header-image {
-            width: 28px !important;
-            height: 28px !important;
-            border-radius: 50% !important;
-            transition: all 0.3s ease !important;
-            object-fit: cover !important;
-        }
-        
-        .header-image:hover {
-            transform: scale(1.05) !important;
-            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4) !important;
-        }
-        
-        .logo-text h2 {
-            margin: 0 !important;
-            font-size: 1.5rem !important;
-            font-weight: 700 !important;
-            color: #ffffff !important;
-        }
-        
-        .logo-text span {
-            font-size: 0.8rem !important;
-            color: #00d4aa !important;
-            font-weight: 400 !important;
-        }
-        
-        .logo-white, .logo-cyan {
-            font-size: inherit !important;
-            font-weight: inherit !important;
-            font-family: inherit !important;
-        }
-        
-        .logo-white {
-            color: #ffffff !important;
-        }
-        
-        .logo-cyan {
-            color: #00d4aa !important;
-        }
-        
-        @media (max-width: 768px) {
-            .logo-text h2 {
-                font-size: 1.3rem !important;
-            }
-            
-            .logo-text span {
-                font-size: 0.7rem !important;
-            }
-            
-            .header-image {
-                width: 24px !important;
-                height: 24px !important;
-            }
-        }
-        
-        /* Enhanced CTA Button Styles */
-        .cta-button {
-            display: inline-block !important;
-            padding: 20px 40px !important;
-            background: linear-gradient(135deg, #00d4aa, #00b894) !important;
-            color: white !important;
-            text-decoration: none !important;
-            border-radius: 50px !important;
-            font-weight: 700 !important;
-            font-size: 1.1rem !important;
-            letter-spacing: 1.2px !important;
-            text-transform: uppercase !important;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-            border: 2px solid transparent !important;
-            position: relative !important;
-            overflow: hidden !important;
-            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3) !important;
-            transform: translateY(0) !important;
+        .blog-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
         }
         
         .cta-primary {
-            font-size: 1.2rem !important;
-            padding: 22px 45px !important;
-            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4) !important;
+            font-size: 1.2rem;
+            padding: 22px 45px;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
         }
         
         .cta-button:hover {
@@ -377,8 +335,9 @@
         }
         
         /* Under Construction Overrides */
+        /* Under construction styles - keeping for reference but not hiding content
         .blog-hero, .blog-categories, .blog-posts, .newsletter {
-            display: none !important;
+            display: block !important;
         }
         .uc-wrap {
             min-height: calc(100vh - 160px);
@@ -411,9 +370,11 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="főkép.jpg" alt="Főkép" class="header-image" onclick="scrollToTop()" style="cursor: pointer;">
+                <a href="index.html">
+                    <img src="főkép.jpg" alt="Roland Webfejlesztő" class="header-image">
+                </a>
             </div>
-            <nav class="nav">
+            <nav class="nav" id="main-nav">
                 <a href="index.html" class="nav-link">HOME</a>
                 <a href="index.html#about" class="nav-link">RÓLAM</a>
                 <a href="index.html#services" class="nav-link">SZOLGÁLTATÁSOK</a>
@@ -421,269 +382,73 @@
                 <a href="blog.html" class="nav-link active">BLOG</a>
                 <a href="index.html#contact" class="nav-link">KAPCSOLAT</a>
             </nav>
-            <div class="mobile-menu-btn">
-                <i class="fi fi-rr-menu-burger"></i>
-            </div>
+            <button class="mobile-menu-btn" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="main-nav">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
     </header>
 
     <!-- Blog Hero Section -->
     <main id="main">
-    <!-- Under Construction Section -->
-    <section class="under-construction">
-        <div class="container uc-wrap">
-            <div class="uc-card">
-                <div class="uc-icon">🔧</div>
-                <h1 class="section-title" style="margin-bottom: 0.5rem;">Ez a rész még feltöltés alatt van</h1>
-                <p class="section-description">Gyere vissza később! 😊</p>
-                <a href="index.html" class="cta-button" style="margin-top: 1.25rem; display: inline-block;">Vissza a főoldalra</a>
+        <section class="hero blog-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="section-label">BLOG</span>
+                        <h1 class="hero-title">
+                            <span class="highlight-fade">FRISS</span> CICKEK ÉS<br>
+                            <span class="highlight">TUDNIVALÓK</span>
+                        </h1>
+                        <p class="hero-description">
+                            Fedezd fel a legújabb cikkeimet a webfejlesztés, tervezés és technológia világából.
+                            Itt osztom meg a tudásomat és inspirációmat a frontend fejlesztés világából.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    <section class="blog-hero">
-        <div class="container">
-            <div class="blog-hero-content">
-                <div class="section-label">BLOG</div>
-                <h1 class="section-title">LEGFRISSEBB GONDOLATOK ÉS CIKKEK</h1>
-                <p class="blog-hero-description">
-                    Fedezd fel a legújabb webfejlesztési trendeket, tippeket és tapasztalataimat. 
-                    Itt osztom meg a tudásomat és inspirációmat a frontend fejlesztés világából.
-                </p>
+        </section>
+
+        <!-- Blog Content -->
+        <section class="blog-content section-padding">
+            <div class="container">
+                <!-- Blog Filters -->
+                <div class="blog-filters">
+                    <div class="filter-group">
+                        <label for="category-filter">Kategória</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="">Összes kategória</option>
+                            <option value="bevezető">Bevezető</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="css">CSS</option>
+                            <option value="react">React</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="tag-filter">Címke</label>
+                        <select id="tag-filter" class="filter-select">
+                            <option value="">Összes címke</option>
+                            <option value="üdvözlés">Üdvözlés</option>
+                            <option value="bevezetés">Bevezetés</option>
+                        <option value="alapok">Alapok</option>
+                        <option value="reszponzív">Reszponzív</option>
+                        <option value="design">Design</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Blog Categories -->
-    <section class="blog-categories">
-        <div class="container">
-            <div class="categories-filter">
-                <button class="category-btn active" data-category="all">Összes</button>
-                <button class="category-btn" data-category="javascript">JavaScript</button>
-                <button class="category-btn" data-category="react">React</button>
-                <button class="category-btn" data-category="css">CSS</button>
-                <button class="category-btn" data-category="tips">Tippek</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Posts Grid -->
-    <section class="blog-posts">
-        <div class="container">
-            <div class="posts-grid" style="display: grid !important; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important; gap: 2rem !important; margin-top: 3rem !important;">
-                <!-- Featured Post -->
-                <article class="post-card featured" data-category="javascript">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <i class="fi fi-rr-code"></i>
-                        </div>
-                        <div class="post-category">JavaScript</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Jan 15.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h2 class="post-title">Modern JavaScript ES2024 Újdonságok</h2>
-                        <p class="post-excerpt">
-                            Fedezd fel a JavaScript legújabb funkcióit és azt, hogyan tehetik még hatékonyabbá a fejlesztési munkádat. Az ES2024 számos izgalmas újdonságot hoz a modern webfejlesztés világába.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">ES2024</span>
-                            <span class="tag">Modern JS</span>
-                            <span class="tag">Frontend</span>
-                        </div>
-                        <a href="javascript-es2024.html" class="read-more">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Regular Posts -->
-                <article class="post-card" data-category="react">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <i class="fi fi-rr-refresh"></i>
-                        </div>
-                        <div class="post-category">React</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Jan 12.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h3 class="post-title">React Hooks: A Modern Fejlesztés Alapjai</h3>
-                        <p class="post-excerpt">
-                            A React Hooks forradalmasították a modern React fejlesztést. Ebben a részletes útmutatóban megismerkedünk a legfontosabb Hook-okkal és azok gyakorlati alkalmazásával.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Hooks</span>
-                            <span class="tag">useState</span>
-                            <span class="tag">useEffect</span>
-                            <span class="tag">Custom Hooks</span>
-                        </div>
-                        <a href="react-hooks-tutorial.html" class="read-more">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="post-card" data-category="css">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <i class="fi fi-rr-paint-brush"></i>
-                        </div>
-                        <div class="post-category">CSS</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Jan 10.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h3 class="post-title">CSS Grid vs Flexbox: Mikor Mit Használj?</h3>
-                        <p class="post-excerpt">
-                            Részletes összehasonlítás a CSS Grid és Flexbox között, gyakorlati 
-                            példákkal és használati esetekkel.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">CSS</span>
-                            <span class="tag">Layout</span>
-                        </div>
-                        <a href="css-grid-flexbox.html" class="read-more">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="post-card" data-category="tips">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <i class="fi fi-rr-lightbulb"></i>
-                        </div>
-                        <div class="post-category">Tippek</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Jan 8.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h3 class="post-title">5 VS Code Kiegészítő Minden Fejlesztőnek</h3>
-                        <p class="post-excerpt">
-                            A leghasznósabb VS Code extensionök, amelyek jelentősen növelhetik 
-                            a produktivitásodat.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">VS Code</span>
-                            <span class="tag">Produktivitás</span>
-                        </div>
-                        <a href="vscode-extensions.html" class="read-more">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="post-card" data-category="javascript">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <i class="fi fi-rr-laptop-code"></i>
-                        </div>
-                        <div class="post-category">JavaScript</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Jan 5.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h3 class="post-title">Aszinkron JavaScript: Promise vs Async/Await</h3>
-                        <p class="post-excerpt">
-                            Mélyebb betekintés az aszinkron JavaScript programozásba, gyakorlati 
-                            példákkal és legjobb gyakorlatokkal.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">Async</span>
-                            <span class="tag">Promise</span>
-                        </div>
-                        <a href="async-javascript.html" class="read-more">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="post-card" data-category="css">
-                    <div class="post-image">
-                        <div class="image-placeholder">
-                            <i class="fi fi-rr-mobile"></i>
-                        </div>
-                        <div class="post-category">CSS</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fi fi-rr-calendar"></i>
-                                2025. Jan 3.
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fi fi-rr-eye"></i>
-                                Élő Demo
-                            </span>
-                        </div>
-                        <h3 class="post-title">Reszponzív Design: Mobile-First Megközelítés</h3>
-                        <p class="post-excerpt">
-                            Hogyan tervezz és fejlessz mobile-first szemlélettel a legjobb 
-                            felhasználói élmény érdekében.
-                        </p>
-                        <div class="post-tags">
-                            <span class="tag">Responsive</span>
-                            <span class="tag">Mobile</span>
-                        </div>
-                        <a href="responsive-design.html" class="read-more">
-                            Projekt megtekintése
-                            <i class="fi fi-rr-link"></i>
-                        </a>
-                    </div>
-                </article>
+            <!-- Posts Grid -->
+            <div class="posts-grid" id="posts-grid">
+                <!-- Posts will be loaded here dynamically -->
             </div>
 
             <!-- Load More Button -->
             <div class="load-more-section">
-                <button class="load-more-btn">
-                    +
-                    További cikkek betöltése
+                <button class="cta-button cta-secondary load-more-btn">
+                    Több bejegyzés betöltése <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
         </div>
@@ -734,6 +499,8 @@
 
     <script src="script.js"></script>
     <script src="blog.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
     
     <style>
         /* Mobile Menu Styles for Blog */
@@ -898,6 +665,8 @@
         }
     </style>
     
+    <!-- Blog Scripts -->
+    <script src="blog.js"></script>
     <script>
         // Mobile Menu and Back to Top functionality for blog page
         document.addEventListener('DOMContentLoaded', function() {

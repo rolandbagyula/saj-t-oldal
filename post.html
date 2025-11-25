@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejegyzés megtekintése</title>
+    <meta name="description" content="Blog bejegyzés megtekintése">
+    <link rel="stylesheet" href="styles.css?v=20250819">
+    <link rel="stylesheet" href="css/post.css">
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        /* Post specific styles */
+        .post-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .post-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .post-meta {
+            color: #718096;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .post-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .post-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .post-content {
+            line-height: 1.8;
+            color: #4a5568;
+        }
+        
+        .post-content h2, 
+        .post-content h3, 
+        .post-content h4 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .post-content a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+        
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: #4a5568;
+            text-decoration: none;
+        }
+        
+        .back-to-blog:hover {
+            color: #3182ce;
+        }
+        
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Ugrás a tartalomhoz</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="főkép.jpg" alt="Logo" class="header-image">
+                    <div class="logo-text">
+                        <h2>Roland Bágyula</h2>
+                        <span>Webfejlesztő</span>
+                    </div>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Kezdőlap</a>
+                    <a href="blog.html" class="active">Blog</a>
+                    <a href="#contact">Kapcsolat</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menü megnyitása">
+                    <i class="fi fi-rr-menu-burger"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main" class="post-container">
+        <a href="blog.html" class="back-to-blog">
+            <i class="fi fi-rr-arrow-left"></i> Vissza a blogra
+        </a>
+        
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title" id="post-title">Bejegyzés betöltése...</h1>
+                <div class="post-meta">
+                    <span><i class="fi fi-rr-calendar"></i> <span id="post-date"></span></span>
+                    <span><i class="fi fi-rr-folder"></i> <span id="post-category"></span></span>
+                    <span><i class="fi fi-rr-tag"></i> <span id="post-tags"></span></span>
+                </div>
+                <img src="" alt="" class="post-image" id="post-image">
+            </header>
+            
+            <div class="post-content" id="post-content">
+                <p>A bejegyzés betöltése folyamatban...</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Roland Bágyula</h3>
+                    <p>Webfejlesztő</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Linkek</h4>
+                    <a href="index.html">Kezdőlap</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="#contact">Kapcsolat</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Kövess</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub"><i class="fi fi-brands-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fi fi-brands-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fi fi-brands-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Roland Bágyula. Minden jog fenntartva.</p>
+                <div class="footer-legal">
+                    <a href="adatvedelem.html">Adatvédelmi tájékoztató</a>
+                    <a href="aszf.html">ÁSZF</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Ugrás az oldal tetejére">
+        <i class="fi fi-rr-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/post.js"></script>
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    mobileMenuBtn.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopBtn.classList.add('show');
+                    } else {
+                        backToTopBtn.classList.remove('show');
+                    }
+                });
+                
+                backToTopBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
